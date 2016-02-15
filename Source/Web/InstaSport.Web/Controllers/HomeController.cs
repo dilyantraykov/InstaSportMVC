@@ -1,33 +1,42 @@
-﻿using InstaSport.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace InstaSport.Web.Controllers
+﻿namespace InstaSport.Web.Controllers
 {
-    public class HomeController : Controller
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using Infrastructure.Mapping;
+
+    using Services.Data;
+
+    using ViewModels.Home;
+
+    public class HomeController : BaseController
     {
+        private readonly IJokesService jokes;
+        private readonly ICategoriesService jokeCategories;
+
+        public HomeController(
+            IJokesService jokes,
+            ICategoriesService jokeCategories)
+        {
+            this.jokes = jokes;
+            this.jokeCategories = jokeCategories;
+        }
+
         public ActionResult Index()
         {
-            var db = new ApplicationDbContext();
-            var usersCount = db.Users.Count();
-            return View();
-        }
+            var jokes = this.jokes.GetRandomJokes(3).To<JokeViewModel>().ToList();
+            var categories =
+                this.Cache.Get(
+                    "categories",
+                    () => this.jokeCategories.GetAll().To<JokeCategoryViewModel>().ToList(),
+                    30 * 60);
+            var viewModel = new IndexViewModel
+            {
+                Jokes = jokes,
+                Categories = categories
+            };
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return this.View(viewModel);
         }
     }
 }
