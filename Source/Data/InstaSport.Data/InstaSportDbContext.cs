@@ -10,20 +10,22 @@
 
     using InstaSport.Data.Models;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class InstaSportDbContext : IdentityDbContext<User>
     {
-        public ApplicationDbContext()
+        public InstaSportDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
-        public IDbSet<Joke> Jokes { get; set; }
+        public IDbSet<Sport> Sports { get; set; }
 
-        public IDbSet<JokeCategory> JokesCategories { get; set; }
+        public IDbSet<City> Cities { get; set; }
 
-        public static ApplicationDbContext Create()
+        public IDbSet<Location> Locations { get; set; }
+
+        public static InstaSportDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new InstaSportDbContext();
         }
 
         public override int SaveChanges()

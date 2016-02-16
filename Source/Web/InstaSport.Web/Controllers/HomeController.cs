@@ -11,29 +11,29 @@
 
     public class HomeController : BaseController
     {
-        private readonly IJokesService jokes;
-        private readonly ICategoriesService jokeCategories;
+        private readonly ILocationsService locations;
+        private readonly ISportsService sports;
 
         public HomeController(
-            IJokesService jokes,
-            ICategoriesService jokeCategories)
+            ILocationsService locations,
+            ISportsService sports)
         {
-            this.jokes = jokes;
-            this.jokeCategories = jokeCategories;
+            this.locations = locations;
+            this.sports = sports;
         }
 
         public ActionResult Index()
         {
-            var jokes = this.jokes.GetRandomJokes(3).To<JokeViewModel>().ToList();
-            var categories =
+            var locations = this.locations.GetAll().To<LocationViewModel>().ToList();
+            var sports =
                 this.Cache.Get(
-                    "categories",
-                    () => this.jokeCategories.GetAll().To<JokeCategoryViewModel>().ToList(),
+                    "sports",
+                    () => this.sports.GetAll().To<SportsViewModel>().ToList(),
                     30 * 60);
             var viewModel = new IndexViewModel
             {
-                Jokes = jokes,
-                Categories = categories
+                Locations = locations,
+                Sports = sports
             };
 
             return this.View(viewModel);

@@ -12,24 +12,24 @@
     using TestStack.FluentMVCTesting;
 
     [TestFixture]
-    public class JokesControllerTests
+    public class LocationsControllerTests
     {
         [Test]
         public void ByIdShouldWorkCorrectly()
         {
             var autoMapperConfig = new AutoMapperConfig();
-            autoMapperConfig.Execute(typeof(JokesController).Assembly);
-            const string JokeContent = "SomeContent";
-            var jokesServiceMock = new Mock<IJokesService>();
-            jokesServiceMock.Setup(x => x.GetById(It.IsAny<string>()))
-                .Returns(new Joke { Content = JokeContent, Category = new JokeCategory { Name = "asda" } });
-            var controller = new JokesController(jokesServiceMock.Object);
+            autoMapperConfig.Execute(typeof(LocationsController).Assembly);
+            const string LocationName = "SomeLocation";
+            var locationsServiceMock = new Mock<ILocationsService>();
+            locationsServiceMock.Setup(x => x.GetById(It.IsAny<string>()))
+                .Returns(new Location { Name = LocationName });
+            var controller = new LocationsController(locationsServiceMock.Object);
             controller.WithCallTo(x => x.ById("asdasasd"))
                 .ShouldRenderView("ById")
-                .WithModel<JokeViewModel>(
+                .WithModel<LocationViewModel>(
                     viewModel =>
                         {
-                            Assert.AreEqual(JokeContent, viewModel.Content);
+                            Assert.AreEqual(LocationName, viewModel.Name);
                         }).AndNoModelErrors();
         }
     }

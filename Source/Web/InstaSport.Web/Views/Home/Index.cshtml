@@ -2,24 +2,23 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<h1>Вицове</h1>
+<h1>Locations</h1>
 <div class="row">
-    @foreach (var joke in Model.Jokes)
+    @foreach (var location in Model.Locations)
     {
         <div class="col-md-4">
-            <a href="@joke.Url">
-                @Html.Raw(joke.Content.Replace("\n", "<br />"))
+            <a href="@location.Url">
+                @location.Name - @location.City.Name
             </a>
-            <div>@joke.Category</div>
         </div>
     }
 </div>
-<h1>Категории</h1>
+<h1>Sports</h1>
 <div class="row">
-    @foreach (var category in Model.Categories)
+    @foreach (var sport in Model.Sports)
     {
         <div class="col-md-2">
-            @category.Name
+            @sport.Name
         </div>
     }
 </div>
