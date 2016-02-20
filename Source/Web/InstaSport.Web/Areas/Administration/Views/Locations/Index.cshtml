@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Manage Locations";
+}
+
+@(Html.Kendo().Grid<InstaSport.Web.Areas.Administration.Models.AdminLocationViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}");
+          columns.Bound(c => c.ModifiedOn).Format("{0:yyyy-MM-dd HH:mm}");
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Locations_Read", "Locations"))
+          .Update(update => update.Action("Locations_Update", "Locations"))
+          .Destroy(destroy => destroy.Action("Locations_Destroy", "Locations"))
+      )
+)
+
