@@ -3,9 +3,9 @@
     using System.ComponentModel.DataAnnotations;
     using InstaSport.Data.Common.Models;
 
-    public class City : BaseModel<int>
+    public class Rating : BaseModel<int>
     {
-        [MinLength(3)]
-        public string Name { get; set; }
+        [Range(0, 10)]
+        public int Value { get; set; }
     }
 }
