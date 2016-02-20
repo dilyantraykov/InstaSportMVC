@@ -51,7 +51,12 @@
 
 }
 
+html {
+    font-size: 62.5%;
+}
+
 body {
+    font-size: 1.6rem;
     font-family: aeromatics-regular;
     padding-top: 50px;
     padding-bottom: 20px;
@@ -75,4 +80,9 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.navbar-brand {
+    font-family: aeromatics-bold-italic;
+    font-size: 2.5rem;
 }
