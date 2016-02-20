@@ -9,6 +9,7 @@
         public Location()
         {
             this.AvailableSports = new HashSet<Sport>();
+            this.Ratings = new HashSet<Rating>();
         }
 
         public string Name { get; set; }
@@ -21,6 +22,8 @@
 
         public virtual City City { get; set; }
 
-        public ICollection<Sport> AvailableSports { get; set; }
+        public virtual ICollection<Sport> AvailableSports { get; set; }
+
+        public virtual ICollection<Rating> Ratings { get; set; }
     }
 }
