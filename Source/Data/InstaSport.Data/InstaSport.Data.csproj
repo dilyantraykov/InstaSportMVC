@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201602152344238_SportsAndLocationsAdded.Designer.cs">
       <DependentUpon>201602152344238_SportsAndLocationsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602202000347_GamesAndRatingsAdded.cs" />
+    <Compile Include="Migrations\201602202000347_GamesAndRatingsAdded.Designer.cs">
+      <DependentUpon>201602202000347_GamesAndRatingsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602152344238_SportsAndLocationsAdded.resx">
       <DependentUpon>201602152344238_SportsAndLocationsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602202000347_GamesAndRatingsAdded.resx">
+      <DependentUpon>201602202000347_GamesAndRatingsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
