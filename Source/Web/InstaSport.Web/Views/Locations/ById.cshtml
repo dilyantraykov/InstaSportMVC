@@ -6,3 +6,29 @@
 <h1>
     @Model.Name - @Model.City.Name
 </h1>
+@if (this.User.Identity.IsAuthenticated)
+{
+    <div>
+        <span class="star-rating">
+            <input type="radio" name="rating" value="1"><i></i>
+            <input type="radio" name="rating" value="2"><i></i>
+            <input type="radio" name="rating" value="3"><i></i>
+            <input type="radio" name="rating" value="4"><i></i>
+            <input type="radio" name="rating" value="5"><i></i>
+        </span>
+    </div>
+}
+<div id="current-rating">Current rating: <strong>@Model.Rating</strong></div>
+
+@section scripts {
+    <script>
+        $(':radio[name="rating"]').change(function () {
+            var rating = this.value;
+            $.post("/Locations/Rate", { locationId: @Model.Id, rating: rating },
+                function(data) {
+                    var newRating = data.Rating;
+                    $('#current-rating').html(newRating);
+                });
+        });
+    </script>
+}

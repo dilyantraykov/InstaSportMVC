@@ -10,6 +10,8 @@
 
         IQueryable<Location> GetLocationsByCity(int cityId);
 
+        double Rate(string userId, int locationId, int rating);
+
         Location GetById(string id);
     }
 }
