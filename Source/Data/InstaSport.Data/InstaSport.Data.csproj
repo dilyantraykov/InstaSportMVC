@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201602202000347_GamesAndRatingsAdded.Designer.cs">
       <DependentUpon>201602202000347_GamesAndRatingsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602202042595_AddedAuthorToRatings.cs" />
+    <Compile Include="Migrations\201602202042595_AddedAuthorToRatings.Designer.cs">
+      <DependentUpon>201602202042595_AddedAuthorToRatings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602202000347_GamesAndRatingsAdded.resx">
       <DependentUpon>201602202000347_GamesAndRatingsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602202042595_AddedAuthorToRatings.resx">
+      <DependentUpon>201602202042595_AddedAuthorToRatings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
