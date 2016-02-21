@@ -441,6 +441,7 @@
     <Content Include="Views\Locations\ById.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
     <Content Include="Views\Shared\_Locations.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

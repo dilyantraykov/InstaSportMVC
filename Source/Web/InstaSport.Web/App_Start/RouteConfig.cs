@@ -10,13 +10,14 @@
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                 name: "LocationPage",
-                url: "Locations/{id}",
+                url: "Location/{id}",
                 defaults: new { controller = "Locations", action = "ById" },
-                namespaces: new string[] { "InstaSport.Web.Controllers" });
+                namespaces: new[] { "InstaSport.Web.Controllers" });
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "InstaSport.Web.Controllers" });
         }
     }
 }

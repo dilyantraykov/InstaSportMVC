@@ -1,6 +1,8 @@
 ﻿namespace InstaSport.Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
+    using Infrastructure.Mapping;
     using InstaSport.Services.Data;
     using InstaSport.Web.ViewModels.Home;
     using Microsoft.AspNet.Identity;
@@ -13,6 +15,14 @@
             ILocationsService locations)
         {
             this.locations = locations;
+        }
+
+        public ActionResult Index()
+        {
+            var locations = this.locations.GetAll();
+            var viewModel = locations.To<LocationViewModel>().ToList();
+
+            return this.View(viewModel);
         }
 
         public ActionResult ById(string id)
