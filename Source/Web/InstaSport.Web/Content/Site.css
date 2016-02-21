@@ -56,10 +56,14 @@ html {
 }
 
 body {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-family: aeromatics-regular;
     padding-top: 50px;
     padding-bottom: 20px;
+}
+
+input {
+    width: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -85,6 +89,14 @@ textarea {
 .navbar-brand {
     font-family: aeromatics-bold-italic;
     font-size: 2.5rem;
+}
+
+.navbar {
+    font-size: 1.5rem;
+}
+
+label {
+    font-size: 1.6rem;
 }
 
 /* Ratings */

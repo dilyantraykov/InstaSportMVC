@@ -18,7 +18,7 @@
         </span>
     </div>
 }
-<div id="current-rating">Current rating: <strong>@Model.Rating</strong></div>
+<div>Current rating: <strong id="current-rating">@Model.Rating</strong></div>
 
 @section scripts {
     <script>
@@ -27,7 +27,7 @@
             $.post("/Locations/Rate", { locationId: @Model.Id, rating: rating },
                 function(data) {
                     var newRating = data.Rating;
-                    $('#current-rating').html(newRating);
+                    $('#current-rating').text(newRating);
                 });
         });
     </script>

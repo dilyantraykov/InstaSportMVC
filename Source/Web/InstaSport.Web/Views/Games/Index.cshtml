@@ -20,7 +20,7 @@
             <div>Sport: @game.SportName</div>
             <span>
                 Players: <strong data-id="players-@game.Id">@game.Players.Count()</strong>
-                <strong>@(game.MaxPlayers != null ? @game.MaxPlayers.ToString() : string.Empty)</strong>
+                <strong>@(game.MaxPlayers != null ? "/" + @game.MaxPlayers : string.Empty)</strong>
             </span>
         </div>
     </div>
