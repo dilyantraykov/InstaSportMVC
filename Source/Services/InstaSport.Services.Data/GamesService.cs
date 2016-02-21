@@ -23,6 +23,14 @@
             return game.Players.Count;
         }
 
+        public int Create(Game game)
+        {
+            this.games.Add(game);
+            this.games.Save();
+
+            return game.Id;
+        }
+
         public IQueryable<Game> GetByCity(int cityId)
         {
             var games = this.games.All().Where(x => x.Location.CityId == cityId);
