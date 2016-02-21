@@ -75,7 +75,7 @@
                 this.games.AddPlayer(gameId, user);
             }
 
-            this.TempData["Notification"] = "Game successfully created!";
+            this.TempData["Success"] = "Game successfully created!";
             return this.Redirect("/");
         }
 
