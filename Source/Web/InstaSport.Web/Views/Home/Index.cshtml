@@ -3,16 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 <h1>Locations</h1>
-<div class="row">
-    @foreach (var location in Model.Locations)
-    {
-        <div class="col-md-4">
-            <a href="@location.Url">
-                @location.Name - @location.City.Name
-            </a>
-        </div>
-    }
-</div>
+@Html.Partial("_Locations", Model.Locations)
 <h1>Sports</h1>
 <div class="row">
     @foreach (var sport in Model.Sports)

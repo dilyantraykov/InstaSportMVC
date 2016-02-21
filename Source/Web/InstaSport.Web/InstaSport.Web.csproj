@@ -218,8 +218,11 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\LocationsController.cs" />
+    <Compile Include="Areas\Administration\Models\AdminGameViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\AdminInputGameViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminInputLocationViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminLocationViewModel.cs" />
+    <Compile Include="Areas\Administration\Controllers\GamesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
@@ -388,6 +391,9 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\Administration\Views\Games\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\AdminLocationViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\AdminGameViewModel.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -434,6 +440,7 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\Locations\ById.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Shared\_Locations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

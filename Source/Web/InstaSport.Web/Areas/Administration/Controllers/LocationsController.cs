@@ -10,7 +10,7 @@
     using Kendo.Mvc.UI;
     using Models;
     using ViewModels.Home;
-
+    using System;
     public class LocationsController : AdministrationController
     {
         public IDbRepository<Location> locations;
@@ -45,8 +45,8 @@
                 this.locations.Save();
             }
 
-            var locationToDisplay = this.locations.All()
-                            .To<AdminInputLocationViewModel>()
+            var locationToDisplay = this.locations.AllWithDeleted()
+                            .To<AdminLocationViewModel>()
                            .FirstOrDefault(x => x.Id == location.Id);
 
             return this.Json(new[] { locationToDisplay }.ToDataSourceResult(request, this.ModelState));
@@ -55,10 +55,20 @@
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Locations_Destroy([DataSourceRequest]DataSourceRequest request, Location location)
         {
-            this.locations.Delete(location);
-            this.locations.Save();
+            if (this.ModelState.IsValid)
+            {
+                var entity = this.locations.GetById(location.Id);
+                entity.DeletedOn = DateTime.Now;
+                entity.IsDeleted = true;
 
-            return this.Json(new[] { location }.ToDataSourceResult(request, this.ModelState));
+                this.locations.Save();
+            }
+
+            var locationToDisplay = this.locations.All()
+                            .To<AdminLocationViewModel>()
+                           .FirstOrDefault(x => x.Id == location.Id);
+
+            return this.Json(new[] { locationToDisplay }.ToDataSourceResult(request, this.ModelState));
         }
     }
 }

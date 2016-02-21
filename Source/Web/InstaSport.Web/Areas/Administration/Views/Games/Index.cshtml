@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Manage Games";
+}
+
+@(Html.Kendo().Grid<InstaSport.Web.Areas.Administration.Models.AdminGameViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.LocationName);
+          columns.Bound(c => c.MinPlayers);
+          columns.Bound(c => c.MaxPlayers);
+          columns.Bound(c => c.StartingDateTime).Format("{0:yyyy-MM-dd HH:mm}");
+          columns.Bound(c => c.CreatedOn).Format("{0:yyyy-MM-dd HH:mm}");
+          columns.Bound(c => c.ModifiedOn).Format("{0:yyyy-MM-dd HH:mm}");
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Games_Read", "Games"))
+          .Update(update => update.Action("Games_Update", "Games"))
+          .Destroy(destroy => destroy.Action("Games_Destroy", "Games"))
+      )
+)

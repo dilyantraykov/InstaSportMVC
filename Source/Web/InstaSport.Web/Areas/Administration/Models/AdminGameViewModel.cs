@@ -1,15 +1,20 @@
 ﻿namespace InstaSport.Web.Areas.Administration.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
-    using Data.Models;
+    using InstaSport.Data.Models;
     using InstaSport.Web.Infrastructure.Mapping;
 
-    public class AdminLocationViewModel : IMapFrom<Location>
+    public class AdminGameViewModel : IMapFrom<Game>
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string LocationName { get; set; }
+
+        public int? MinPlayers { get; set; }
+
+        public int? MaxPlayers { get; set; }
+
+        public DateTime StartingDateTime { get; set; }
 
         public bool IsDeleted { get; set; }
 

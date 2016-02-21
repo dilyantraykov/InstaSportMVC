@@ -37,16 +37,12 @@
                 {
                     new Game()
                     {
-                        SportId = this.Sports[0].Id,
-                        LocationId = this.Locations[0].Id,
                         StartingDateTime = DateTime.UtcNow.AddDays(6),
                         MinPlayers = 10,
                         MaxPlayers = 12
                     },
                     new Game()
                     {
-                        SportId = this.Sports[1].Id,
-                        LocationId = this.Locations[0].Id,
                         StartingDateTime = DateTime.UtcNow.AddDays(4),
                         MaxPlayers = 2
                     }

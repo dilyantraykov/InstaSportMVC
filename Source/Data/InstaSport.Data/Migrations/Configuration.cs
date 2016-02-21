@@ -6,7 +6,7 @@
     using InstaSport.Data.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-
+    using System;
     public sealed class Configuration : DbMigrationsConfiguration<InstaSportDbContext>
     {
         public Configuration()
@@ -61,7 +61,12 @@
 
             if (!context.Games.Any())
             {
-                seed.Games.ForEach(g => context.Games.Add(g));
+                seed.Games.ForEach(g =>
+                {
+                    g.SportId = context.Sports.OrderBy(l => Guid.NewGuid()).First().Id;
+                    g.LocationId = context.Locations.OrderBy(l => Guid.NewGuid()).First().Id;
+                    context.Games.Add(g);
+                });
                 context.SaveChanges();
             }
         }

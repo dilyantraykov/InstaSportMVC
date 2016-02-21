@@ -1,0 +1,12 @@
+﻿@model IEnumerable<InstaSport.Web.ViewModels.Home.LocationViewModel>
+
+<div class="row">
+    @foreach (var location in Model)
+    {
+        <div class="col-md-4">
+            <a href="@location.Url">
+                @location.Name - @location.City.Name
+            </a>
+        </div>
+    }
+</div>
