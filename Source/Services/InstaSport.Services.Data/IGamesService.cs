@@ -8,5 +8,9 @@
         IQueryable<Game> GetUpcoming();
 
         IQueryable<Game> GetByCity(int cityId);
+
+        Game GetById(int id);
+
+        int AddPlayer(int gameId, User player);
     }
 }

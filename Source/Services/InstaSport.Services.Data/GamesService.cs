@@ -14,10 +14,25 @@
             this.games = games;
         }
 
+        public int AddPlayer(int gameId, User player)
+        {
+            var game = this.games.GetById(gameId);
+            game.Players.Add(player);
+            this.games.Save();
+
+            return game.Players.Count;
+        }
+
         public IQueryable<Game> GetByCity(int cityId)
         {
             var games = this.games.All().Where(x => x.Location.CityId == cityId);
             return games;
+        }
+
+        public Game GetById(int id)
+        {
+            var game = this.games.GetById(id);
+            return game;
         }
 
         public IQueryable<Game> GetUpcoming()
@@ -29,5 +44,7 @@
 
             return games;
         }
+
+
     }
 }

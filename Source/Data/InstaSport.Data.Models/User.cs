@@ -12,6 +12,7 @@
         public User()
         {
             this.Ratings = new HashSet<Rating>();
+            this.Games = new HashSet<Game>();
             this.FavouriteSports = new HashSet<Sport>();
         }
 
@@ -24,6 +25,8 @@
         public string FacebookUrl { get; set; }
 
         public virtual ICollection<Rating> Ratings { get; set; }
+
+        public virtual ICollection<Game> Games { get; set; }
 
         public virtual ICollection<Sport> FavouriteSports { get; set; }
 

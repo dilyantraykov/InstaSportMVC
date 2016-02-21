@@ -9,9 +9,32 @@
 @foreach (var game in Model)
 {
     <div class="row">
-        <h3>@game.LocationName</h3>
-        <div>Sport: @game.SportName</div>
-        <span>Players: <strong>@game.Players.Count()@(game.MaxPlayers != null ? "/" + @game.MaxPlayers : string.Empty)</strong></span>
+        <div class="col-md-3">
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <button data-id="@game.Id" class="join-game btn btn-primary btn-sm">Join</button>
+            }
+        </div>
+        <div class="col-md-9">
+            <h3>@game.LocationName</h3>
+            <div>Sport: @game.SportName</div>
+            <span>
+                Players: <strong data-id="players-@game.Id">@game.Players.Count()</strong>
+                <strong>@(game.MaxPlayers != null ? @game.MaxPlayers.ToString() : string.Empty)</strong>
+            </span>
+        </div>
     </div>
 }
 
+@section scripts {
+    <script>
+        $(".join-game").click(function () {
+            var gameId = $(this).attr("data-id");
+            $.post("/Games/Join", { gameId: gameId },
+                function (data) {
+                    var playersCount = data.PlayersCount;
+                    $('strong[data-id="players-' + gameId + '"]').text(playersCount);
+                });
+        });
+    </script>
+}
