@@ -1,0 +1,17 @@
+﻿@model IEnumerable<InstaSport.Web.ViewModels.Games.UpcomingGameViewModel>
+
+@{
+    ViewBag.Title = "Upcoming Games";
+}
+
+<h2>Upcoming Games</h2>
+
+@foreach (var game in Model)
+{
+    <div class="row">
+        <h3>@game.LocationName</h3>
+        <div>Sport: @game.SportName</div>
+        <span>Players: <strong>@game.Players.Count()@(game.MaxPlayers != null ? "/" + @game.MaxPlayers : string.Empty)</strong></span>
+    </div>
+}
+
