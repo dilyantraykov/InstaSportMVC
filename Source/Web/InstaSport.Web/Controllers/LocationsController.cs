@@ -1,12 +1,10 @@
 ﻿namespace InstaSport.Web.Controllers
 {
     using System.Web.Mvc;
-
     using InstaSport.Services.Data;
     using InstaSport.Web.ViewModels.Home;
     using Microsoft.AspNet.Identity;
-    using System.Linq;
-    using Data.Models;
+
     public class LocationsController : BaseController
     {
         private readonly ILocationsService locations;
