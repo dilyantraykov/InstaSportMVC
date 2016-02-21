@@ -21,7 +21,7 @@
             get
             {
                 IIdentifierProvider identifier = new IdentifierProvider();
-                return $"/Locations/{identifier.EncodeId(this.Id)}";
+                return $"/Location/{identifier.EncodeId(this.Id)}";
             }
         }
 
