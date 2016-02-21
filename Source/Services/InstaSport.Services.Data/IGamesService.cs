@@ -12,5 +12,7 @@
         Game GetById(int id);
 
         int AddPlayer(int gameId, User player);
+
+        int Create(Game game);
     }
 }

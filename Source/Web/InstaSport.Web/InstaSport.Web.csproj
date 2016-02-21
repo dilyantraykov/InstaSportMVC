@@ -242,6 +242,7 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\Games\GameInputViewModel.cs" />
     <Compile Include="ViewModels\Games\PlayerViewModel.cs" />
     <Compile Include="ViewModels\Games\UpcomingGameViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
@@ -376,24 +377,24 @@
     <Content Include="Content\KendoUI\kendo.common.min.css.map" />
     <Content Include="Content\KendoUI\kendo.default.min.css.map" />
     <Content Include="Areas\Administration\Views\Locations\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\DateTime.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\Int32.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\DisplayTemplates\String.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Currency.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Date.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Email.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Integer.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Password.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Int32.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\Administration\Views\Games\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\AdminLocationViewModel.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\AdminGameViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AdminLocationViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AdminGameViewModel.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -442,9 +443,11 @@
     <Content Include="Views\Games\Index.cshtml" />
     <Content Include="Views\Shared\_Locations.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\Games\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

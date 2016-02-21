@@ -11,14 +11,20 @@
     public class GamesController : BaseController
     {
         private IGamesService games;
+        private ISportsService sports;
+        private ILocationsService locations;
         private readonly UserManager<User> manager;
 
         public GamesController(
             IGamesService games,
+            ISportsService sports,
+            ILocationsService locations,
             UserManager<User> manager)
         {
             this.games = games;
             this.manager = manager;
+            this.sports = sports;
+            this.locations = locations;
         }
 
         public ActionResult Index()
@@ -28,6 +34,49 @@
                 .Take(10);
 
             return this.View(games);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var viewModel = new GameInputViewModel();
+
+            viewModel.Locations = this.locations.GetAll();
+            viewModel.Sports = this.sports.GetAll();
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(GameInputViewModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            var game = new Game()
+            {
+                SportId = model.SportId,
+                LocationId = model.LocationId,
+                MinPlayers = model.MinPlayers,
+                MaxPlayers = model.MaxPlayers,
+                StartingDateTime = model.StartingDateTime
+            };
+
+            var gameId = this.games.Create(game);
+
+            if (this.User.Identity.IsAuthenticated)
+            {
+                var userId = this.User.Identity.GetUserId();
+                var user = this.manager.Users.FirstOrDefault(u => u.Id == userId);
+
+                this.games.AddPlayer(gameId, user);
+            }
+
+            this.TempData["Notification"] = "Game successfully created!";
+            return this.Redirect("/");
         }
 
         [HttpPost]
