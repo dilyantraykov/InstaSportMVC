@@ -1,5 +1,6 @@
 ﻿namespace InstaSport.Data.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using Common.Models;
@@ -8,6 +9,7 @@
     {
         public Game()
         {
+            this.Status = GameStatus.WaitingForPlayers;
             this.Players = new HashSet<User>();
         }
 
@@ -20,6 +22,10 @@
         public int SportId { get; set; }
 
         public virtual Sport Sport { get; set; }
+
+        public DateTime StartingDateTime { get; set; }
+
+        public GameStatus Status { get; set; }
 
         public int? MinPlayers { get; set; }
 

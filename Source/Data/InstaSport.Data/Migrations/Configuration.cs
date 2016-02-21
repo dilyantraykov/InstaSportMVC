@@ -2,13 +2,11 @@
 {
     using System.Data.Entity.Migrations;
     using System.Linq;
-
+    using InstaSport.Common;
+    using InstaSport.Data.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    using InstaSport.Common;
-    using InstaSport.Data.Models;
-    using System.Collections.Generic;
     public sealed class Configuration : DbMigrationsConfiguration<InstaSportDbContext>
     {
         public Configuration()
@@ -58,6 +56,12 @@
             if (!context.Locations.Any())
             {
                 seed.Locations.ForEach(l => context.Locations.Add(l));
+                context.SaveChanges();
+            }
+
+            if (!context.Games.Any())
+            {
+                seed.Games.ForEach(g => context.Games.Add(g));
                 context.SaveChanges();
             }
         }

@@ -3,12 +3,9 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
-
     using Common.Models;
-
-    using Microsoft.AspNet.Identity.EntityFramework;
-
     using InstaSport.Data.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public class InstaSportDbContext : IdentityDbContext<User>
     {
@@ -18,6 +15,8 @@
         }
 
         public IDbSet<Sport> Sports { get; set; }
+
+        public IDbSet<Game> Games { get; set; }
 
         public IDbSet<City> Cities { get; set; }
 

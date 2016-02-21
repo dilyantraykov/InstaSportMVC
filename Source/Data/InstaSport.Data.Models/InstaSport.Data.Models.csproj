@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
+    <Compile Include="GameStatus.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="User.cs" />
     <Compile Include="City.cs" />
