@@ -88,6 +88,10 @@
     <Compile Include="Migrations\201602211725123_SportsNowHaveCollectionOfUsers.Designer.cs">
       <DependentUpon>201602211725123_SportsNowHaveCollectionOfUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602212020533_MadeGameToUserManyToMany.cs" />
+    <Compile Include="Migrations\201602212020533_MadeGameToUserManyToMany.Designer.cs">
+      <DependentUpon>201602212020533_MadeGameToUserManyToMany.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602211725123_SportsNowHaveCollectionOfUsers.resx">
       <DependentUpon>201602211725123_SportsNowHaveCollectionOfUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602212020533_MadeGameToUserManyToMany.resx">
+      <DependentUpon>201602212020533_MadeGameToUserManyToMany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,9 @@
 
     using Services.Data;
     using Services.Web;
-
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Data.Models;
+    using Microsoft.AspNet.Identity;
     public static class AutofacConfig
     {
         public static void RegisterAutofac()
@@ -36,6 +38,10 @@
 
             // OPTIONAL: Enable property injection into action filters.
             builder.RegisterFilterProvider();
+
+            builder.RegisterType<UserStore<User>>()
+                .As<IUserStore<User>>();
+            builder.RegisterType<UserManager<User>>();
 
             // Register services
             RegisterServices(builder);
