@@ -2,14 +2,24 @@
 @{
     ViewBag.Title = "Home Page";
 }
-<h1>Locations</h1>
-@Html.Partial("_Locations", Model.Locations)
-<h1>Sports</h1>
-<div class="row">
-    @foreach (var sport in Model.Sports)
-    {
-        <div class="col-md-2">
-            @sport.Name
-        </div>
-    }
+
+<div class="jumbotron text-center">
+    <h1>InstaSport</h1>
+    <p>Play. Now.</p>
+</div>
+
+<div class="row text-center">
+    <h2>Choose from more than:</h2>
+    <div class="col-md-4">
+        <h3>@Model.Sports</h3>
+        @Html.ActionLink("Sports", "Index", "Sports")
+    </div>
+    <div class="col-md-4">
+        <h3>@Model.Locations</h3> 
+        @Html.ActionLink("Locations", "Index", "Locations")
+    </div>
+    <div class="col-md-4">
+        <h3>@Model.Games</h3>
+        @Html.ActionLink("Games", "Index", "Games")
+    </div>
 </div>

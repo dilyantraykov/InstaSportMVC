@@ -4,8 +4,10 @@
 
     public class IndexViewModel
     {
-        public IEnumerable<LocationViewModel> Locations { get; set; }
+        public int Locations { get; set; }
 
-        public IEnumerable<SportsViewModel> Sports { get; set; }
+        public int Sports { get; set; }
+
+        public int Games { get; set; }
     }
 }

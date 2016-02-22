@@ -450,6 +450,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="ViewModels\Sports\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
