@@ -36,6 +36,19 @@
             return this.View(games);
         }
 
+        public ActionResult BySport(int sportId)
+        {
+            var games = this.games.GetBySport(sportId).To<UpcomingGameViewModel>().ToList();
+            var sport = this.sports.GetById(sportId).Name;
+            var viewModel = new GamesBySportViewModel()
+            {
+                Games = games,
+                SportName = sport
+            };
+
+            return this.View(viewModel);
+        }
+
         [HttpGet]
         public ActionResult Create()
         {

@@ -8,6 +8,8 @@
     {
         IQueryable<Sport> GetAll();
 
+        Sport GetById(int id);
+
         int GetCount();
     }
 }

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<InstaSport.Web.ViewModels.Games.UpcomingGameViewModel>
+
+<div class="container">
+    @foreach (var game in Model)
+    {
+        var currentPlayers = game.Players.Any() ? @game.Players.Count() : 0;
+        var minPlayers = game.MinPlayers;
+        var goalPlayers = minPlayers != null ? minPlayers : game.MaxPlayers;
+
+        var progress = goalPlayers != null ? (((double)currentPlayers / goalPlayers) * 100) : 100;
+
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <h3>@game.LocationName</h3>
+                    <div>Sport: @game.SportName</div>
+                    <div>
+                        <span>
+                            Players: <strong data-id="players-@game.Id">@currentPlayers</strong>
+                            <strong>@(minPlayers != null ? "/" + minPlayers : string.Empty)</strong>
+                        </span>
+                        <span>
+                            @if (this.User.Identity.IsAuthenticated && progress < 100)
+                            {
+                                <button data-id="@game.Id" class="join-game btn btn-primary btn-sm">Join</button>
+                            }
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="@(progress)" aria-valuemin="0" aria-valuemax="100" style="width: @(progress)%;">
+                    <span class="sr-only">@(progress)% Complete</span>
+                </div>
+            </div>
+        </div>
+    }
+</div>

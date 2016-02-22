@@ -1,0 +1,9 @@
+﻿@model InstaSport.Web.ViewModels.Games.GamesBySportViewModel
+
+@{ 
+    ViewBag.Title = $"{Model.SportName} Games";
+}
+
+<h1>@ViewBag.Title</h1>
+
+@Html.Partial("_Games", Model.Games)

@@ -230,6 +230,7 @@
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\SportsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,6 +244,7 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Games\GameInputViewModel.cs" />
+    <Compile Include="ViewModels\Games\GamesBySportViewModel.cs" />
     <Compile Include="ViewModels\Games\PlayerViewModel.cs" />
     <Compile Include="ViewModels\Games\UpcomingGameViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
@@ -258,6 +260,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Sports\SportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -446,11 +449,14 @@
     <Content Include="Views\Games\Create.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_Notifications.cshtml" />
+    <Content Include="Views\Games\BySport.cshtml" />
+    <Content Include="Views\Shared\_Games.cshtml" />
+    <Content Include="Views\Shared\_Sports.cshtml" />
+    <Content Include="Views\Sports\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\" />
-    <Folder Include="ViewModels\Sports\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
