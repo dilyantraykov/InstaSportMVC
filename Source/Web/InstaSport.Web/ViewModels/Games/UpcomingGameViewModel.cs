@@ -5,14 +5,16 @@
     using AutoMapper;
     using Infrastructure.Mapping;
     using InstaSport.Data.Models;
+    using Locations;
+    using Sports;
 
     public class UpcomingGameViewModel : IMapFrom<Game>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
-        public string LocationName { get; set; }
+        public LocationLinkViewModel Location { get; set; }
 
-        public string SportName { get; set; }
+        public SportViewModel Sport { get; set; }
 
         public DateTime StartingDateTime { get; set; }
 
@@ -26,11 +28,11 @@
         {
             configuration.CreateMap<Game, UpcomingGameViewModel>()
                 .ForMember(
-                    x => x.LocationName,
-                    opt => opt.MapFrom(x => x.Location.Name))
+                    x => x.Location,
+                    opt => opt.MapFrom(x => x.Location))
                 .ForMember(
-                    x => x.SportName,
-                    opt => opt.MapFrom(x => x.Sport.Name));
+                    x => x.Sport,
+                    opt => opt.MapFrom(x => x.Sport));
         }
     }
 }
