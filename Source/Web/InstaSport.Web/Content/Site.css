@@ -1,32 +1,32 @@
 ﻿/* Fonts */
 @font-face {
-    font-family: 'aeromatics-bold-italic';
+    font-family: 'aeromatics';
     src: url('../fonts/AeroMatics/aero_matics_bold_italic-webfont.eot');
     src: url('../fonts/AeroMatics/aero_matics_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/AeroMatics/aero_matics_bold_italic-webfont.woff2') format('woff2'),
          url('../fonts/AeroMatics/aero_matics_bold_italic-webfont.woff') format('woff'),
          url('../fonts/AeroMatics/aero_matics_bold_italic-webfont.ttf') format('truetype'),
          url('../fonts/AeroMatics/aero_matics_bold_italic-webfont.svg#aero_maticsbold_italic') format('svg');
-    font-weight: normal;
-    font-style: normal;
+    font-weight: bold;
+    font-style: italic, oblique;
 
 }
 
 @font-face {
-    font-family: 'aeromatics-bold';
+    font-family: 'aeromatics';
     src: url('../fonts/AeroMatics/aero_matics_bold-webfont.eot');
     src: url('../fonts/AeroMatics/aero_matics_bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/AeroMatics/aero_matics_bold-webfont.woff2') format('woff2'),
          url('../fonts/AeroMatics/aero_matics_bold-webfont.woff') format('woff'),
          url('../fonts/AeroMatics/aero_matics_bold-webfont.ttf') format('truetype'),
          url('../fonts/AeroMatics/aero_matics_bold-webfont.svg#aero_maticsbold') format('svg');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 
 }
 
 @font-face {
-    font-family: 'aeromatics-italic';
+    font-family: 'aeromatics';
     src: url('../fonts/AeroMatics/aero_matics_italic-webfont.eot');
     src: url('../fonts/AeroMatics/aero_matics_italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/AeroMatics/aero_matics_italic-webfont.woff2') format('woff2'),
@@ -34,12 +34,12 @@
          url('../fonts/AeroMatics/aero_matics_italic-webfont.ttf') format('truetype'),
          url('../fonts/AeroMatics/aero_matics_italic-webfont.svg#aero_maticsitalic') format('svg');
     font-weight: normal;
-    font-style: normal;
+    font-style: italic, oblique;
 
 }
 
 @font-face {
-    font-family: 'aeromatics-regular';
+    font-family: 'aeromatics';
     src: url('../fonts/AeroMatics/aero_matics_regular-webfont.eot');
     src: url('../fonts/AeroMatics/aero_matics_regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/AeroMatics/aero_matics_regular-webfont.woff2') format('woff2'),
@@ -57,7 +57,7 @@ html {
 
 body {
     font-size: 2rem;
-    font-family: aeromatics-regular;
+    font-family: aeromatics;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -87,7 +87,9 @@ textarea {
 }
 
 .navbar-brand {
-    font-family: aeromatics-bold-italic;
+    font-family: aeromatics;
+    font-weight: bold;
+    font-style: italic;
     font-size: 2.5rem;
 }
 
