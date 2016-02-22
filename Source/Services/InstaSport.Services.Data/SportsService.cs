@@ -18,5 +18,11 @@
         {
             return this.sports.All().OrderBy(x => x.Name);
         }
+
+        public int GetCount()
+        {
+            var count = this.sports.All().Count();
+            return count;
+        }
     }
 }

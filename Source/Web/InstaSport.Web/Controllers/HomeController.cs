@@ -13,27 +13,38 @@
     {
         private readonly ILocationsService locations;
         private readonly ISportsService sports;
+        private readonly IGamesService games;
 
         public HomeController(
             ILocationsService locations,
-            ISportsService sports)
+            ISportsService sports,
+            IGamesService games)
         {
             this.locations = locations;
             this.sports = sports;
+            this.games = games;
         }
 
         public ActionResult Index()
         {
-            var locations = this.locations.GetAll().To<LocationViewModel>().ToList();
-            var sports =
-                this.Cache.Get(
-                    "sports",
-                    () => this.sports.GetAll().To<SportsViewModel>().ToList(),
-                    30 * 60);
+            var locations = this.Cache.Get(
+                            "locations",
+                            () => this.locations.GetCount(),
+                            30 * 60);
+            var sports = this.Cache.Get(
+                            "sports",
+                            () => this.sports.GetCount(),
+                            30 * 60);
+            var games = this.Cache.Get(
+                            "games",
+                            () => this.games.GetCount(),
+                            30 * 60);
+
             var viewModel = new IndexViewModel
             {
                 Locations = locations,
-                Sports = sports
+                Sports = sports,
+                Games = games
             };
 
             return this.View(viewModel);

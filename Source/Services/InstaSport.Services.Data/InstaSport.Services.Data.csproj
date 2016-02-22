@@ -43,10 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GamesService.cs" />
-    <Compile Include="IGamesService.cs" />
+    <Compile Include="Contracts\IGamesService.cs" />
     <Compile Include="SportsService.cs" />
-    <Compile Include="ISportsService.cs" />
-    <Compile Include="ILocationsService.cs" />
+    <Compile Include="Contracts\ISportsService.cs" />
+    <Compile Include="Contracts\ILocationsService.cs" />
     <Compile Include="LocationsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

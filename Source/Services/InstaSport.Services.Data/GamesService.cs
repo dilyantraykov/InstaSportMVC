@@ -43,6 +43,12 @@
             return game;
         }
 
+        public int GetCount()
+        {
+            var count = this.games.All().Count();
+            return count;
+        }
+
         public IQueryable<Game> GetUpcoming()
         {
             var games = this.games.All()

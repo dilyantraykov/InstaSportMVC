@@ -7,5 +7,7 @@
     public interface ISportsService
     {
         IQueryable<Sport> GetAll();
+
+        int GetCount();
     }
 }

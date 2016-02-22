@@ -30,6 +30,12 @@
             return location;
         }
 
+        public int GetCount()
+        {
+            var count = this.locations.All().Count();
+            return count;
+        }
+
         public IQueryable<Location> GetLocationsByCity(int cityId)
         {
             return this.locations.All().Where(l => l.CityId == cityId);
