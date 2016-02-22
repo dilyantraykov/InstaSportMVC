@@ -18,6 +18,8 @@
 
         public IEnumerable<PlayerViewModel> Players { get; set; }
 
+        public int? MinPlayers { get; set; }
+
         public int? MaxPlayers { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
