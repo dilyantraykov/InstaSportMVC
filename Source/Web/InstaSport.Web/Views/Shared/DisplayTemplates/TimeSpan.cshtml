@@ -1,0 +1,17 @@
+﻿@model TimeSpan
+
+@functions{
+    public string FormatElement(int value, string text)
+    {
+        if (value == 0) return string.Empty;
+        if (value > 1) text += "s";
+        return string.Format("{0} {1}", value, text);
+    }
+}
+
+@string.Join(", ", new[]{
+                        FormatElement(Model.Days, "day"),
+                        FormatElement(Model.Hours, "hour"),
+                        FormatElement(Model.Minutes, "minute")
+                    }
+                   .Where(m => m != string.Empty))
