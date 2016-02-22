@@ -1,19 +1,17 @@
 ﻿@{
-    ViewBag.Title = "Manage Games";
+    ViewBag.Title = "Manage Sports";
 }
 
-@(Html.Kendo().Grid<InstaSport.Web.Areas.Administration.Models.AdminGameViewModel>()
+@(Html.Kendo().Grid<InstaSport.Web.Areas.Administration.Models.AdminSportViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
-          columns.Bound(c => c.LocationName);
-          columns.Bound(c => c.MinPlayers);
-          columns.Bound(c => c.MaxPlayers);
-          columns.Bound(c => c.StartingDateTime).Format("{0:HH:mm dd.MM.yyyy}");
+          columns.Bound(c => c.Name);
           columns.Bound(c => c.CreatedOn).Format("{0:HH:mm dd.MM.yyyy}");
           columns.Bound(c => c.ModifiedOn).Format("{0:HH:mm dd.MM.yyyy}");
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
+      .ToolBar(toolbar => toolbar.Create())
       .ColumnMenu()
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
@@ -26,8 +24,9 @@
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))
-          .Read(read => read.Action("Games_Read", "Games"))
-          .Update(update => update.Action("Games_Update", "Games"))
-          .Destroy(destroy => destroy.Action("Games_Destroy", "Games"))
+          .Read(read => read.Action("Sports_Read", "Sports"))
+          .Create(read => read.Action("Sports_Create", "Sports"))
+          .Update(update => update.Action("Sports_Update", "Sports"))
+          .Destroy(destroy => destroy.Action("Sports_Destroy", "Sports"))
       )
 )
