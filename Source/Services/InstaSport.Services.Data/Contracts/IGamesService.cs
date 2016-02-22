@@ -9,6 +9,8 @@
 
         IQueryable<Game> GetByCity(int cityId);
 
+        IQueryable<Game> GetBySport(int sportId);
+
         int GetCount();
 
         Game GetById(int id);

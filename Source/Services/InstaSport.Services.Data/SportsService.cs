@@ -1,5 +1,6 @@
 ﻿namespace InstaSport.Services.Data
 {
+    using System;
     using System.Linq;
 
     using InstaSport.Data.Common;
@@ -17,6 +18,11 @@
         public IQueryable<Sport> GetAll()
         {
             return this.sports.All().OrderBy(x => x.Name);
+        }
+
+        public Sport GetById(int id)
+        {
+            return this.sports.GetById(id);
         }
 
         public int GetCount()

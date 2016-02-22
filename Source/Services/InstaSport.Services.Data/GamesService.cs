@@ -43,6 +43,12 @@
             return game;
         }
 
+        public IQueryable<Game> GetBySport(int sportId)
+        {
+            var games = this.games.All().Where(g => g.SportId == sportId);
+            return games;
+        }
+
         public int GetCount()
         {
             var count = this.games.All().Count();
