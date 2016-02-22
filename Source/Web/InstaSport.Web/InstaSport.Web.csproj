@@ -204,11 +204,15 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\LocationsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SportsController.cs" />
+    <Compile Include="Areas\Administration\Models\AdminCityViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminGameViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminInputGameViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminInputLocationViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\AdminInputSportViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminLocationViewModel.cs" />
     <Compile Include="Areas\Administration\Controllers\GamesController.cs" />
+    <Compile Include="Areas\Administration\Models\AdminSportViewModel.cs" />
     <Compile Include="Content\Errors\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -399,6 +403,7 @@
     <Content Include="Areas\Administration\Views\Games\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminLocationViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminGameViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Sports\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -455,6 +460,8 @@
     <Content Include="Views\Shared\_Sports.cshtml" />
     <Content Include="Views\Sports\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TimeSpan.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AdminSportViewModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AdminInputLocationViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

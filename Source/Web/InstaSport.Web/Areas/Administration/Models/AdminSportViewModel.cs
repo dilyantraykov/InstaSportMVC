@@ -1,19 +1,14 @@
 ﻿namespace InstaSport.Web.Areas.Administration.Models
 {
     using System;
-    using System.Collections.Generic;
-    using Data.Models;
+    using InstaSport.Data.Models;
     using InstaSport.Web.Infrastructure.Mapping;
 
-    public class AdminLocationViewModel : IMapFrom<Location>
+    public class AdminSportViewModel : IMapFrom<Sport>
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-        public int CityId { get; set; }
-
-        public bool IsDeleted { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
