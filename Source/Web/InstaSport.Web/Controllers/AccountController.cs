@@ -91,6 +91,7 @@
             switch (result)
             {
                 case SignInStatus.Success:
+                    this.TempData["Success"] = $"Welcome {model.UserName}!";
                     return this.RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return this.View("Lockout");
@@ -170,7 +171,16 @@
         {
             if (this.ModelState.IsValid)
             {
-                var user = new User { UserName = model.UserName, Email = model.Email };
+                var user = new User()
+                {
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    FacebookUrl = model.FacebookUrl,
+                    AvatarUrl = model.AvatarUrl
+                };
+
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -181,6 +191,8 @@
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    this.TempData["Success"] = $"Successfully created user {model.UserName}!";
                     return this.RedirectToAction("Index", "Home");
                 }
 
