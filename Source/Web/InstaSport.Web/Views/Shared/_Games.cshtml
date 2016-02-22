@@ -3,6 +3,7 @@
 <div class="container">
     @foreach (var game in Model)
     {
+        var startsIn = game.StartingDateTime - DateTime.UtcNow;
         var currentPlayers = game.Players.Any() ? @game.Players.Count() : 0;
         var minPlayers = game.MinPlayers;
         var goalPlayers = minPlayers != null ? minPlayers : game.MaxPlayers;
@@ -12,8 +13,9 @@
         <div class="col-md-4">
             <div class="panel panel-info">
                 <div class="panel-body">
-                    <h3>@game.LocationName</h3>
-                    <div>Sport: @game.SportName</div>
+                    <div>Location: <a href="@game.Location.Url">@game.Location.Name</a></div>
+                    <div>Sport: @Html.ActionLink(game.Sport.Name, "BySport", "Games", new { sportId = game.Sport.Id }, null)</div>
+                    <div>Starts in: <em>@Html.DisplayFor(m => startsIn)</em></div>
                     <div>
                         <span>
                             Players: <strong data-id="players-@game.Id">@currentPlayers</strong>
