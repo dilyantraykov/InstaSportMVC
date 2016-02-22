@@ -28,10 +28,7 @@
         </div>
     </div>
     <div class="container body-content">
-        @if (this.TempData["Success"] != null)
-        {
-            <div class="alert alert-success">@this.TempData["Success"]</div>
-        }
+        @Html.Partial("_Notifications")
         @RenderBody()
         <hr />
         <footer>
