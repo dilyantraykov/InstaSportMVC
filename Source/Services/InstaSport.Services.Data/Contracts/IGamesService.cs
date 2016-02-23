@@ -5,6 +5,8 @@
 
     public interface IGamesService
     {
+        IQueryable<Game> GetAll();
+
         IQueryable<Game> GetUpcoming();
 
         IQueryable<Game> GetByCity(int cityId);
@@ -18,5 +20,7 @@
         int AddPlayer(int gameId, User player);
 
         int Create(Game game);
+
+        void Save();
     }
 }

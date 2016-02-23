@@ -40,6 +40,14 @@
             return this.View(games);
         }
 
+        public ActionResult ById(int gameId)
+        {
+            var game = this.games.GetById(gameId);
+            var viewModel = this.Mapper.Map<GameDetailsViewModel>(game);
+
+            return this.View(viewModel);
+        }
+
         public ActionResult BySport(int sportId)
         {
             var games = this.games.GetBySport(sportId).To<UpcomingGameViewModel>().ToList();

@@ -1,0 +1,20 @@
+﻿@model InstaSport.Web.ViewModels.Games.GameDetailsViewModel
+
+@{
+    ViewBag.Title = "Game Details";
+}
+
+@Html.DisplayFor(m => Model)
+
+@section scripts {
+    <script>
+        $(".join-game").click(function () {
+            var gameId = $(this).attr("data-id");
+            $.post("/Games/Join", { gameId: gameId },
+                function (data) {
+                    var playersCount = data.PlayersCount;
+                    $('strong[data-id="players-' + gameId + '"]').text(playersCount);
+                });
+        });
+    </script>
+}
