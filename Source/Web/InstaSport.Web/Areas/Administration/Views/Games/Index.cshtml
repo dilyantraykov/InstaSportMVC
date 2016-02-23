@@ -6,7 +6,8 @@
       .Name("grid")
       .Columns(columns =>
       {
-          columns.Bound(c => c.LocationName);
+          columns.ForeignKey(p => p.LocationId, (System.Collections.IEnumerable)ViewData["locations"], "Id", "Name")
+                .Title("Location").Width(200);
           columns.Bound(c => c.MinPlayers);
           columns.Bound(c => c.MaxPlayers);
           columns.Bound(c => c.StartingDateTime).Format("{0:HH:mm dd.MM.yyyy}");
@@ -15,6 +16,7 @@
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
       .ColumnMenu()
+      .HtmlAttributes(new { style = "height: 400px"})
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
       .Sortable(sortable =>
