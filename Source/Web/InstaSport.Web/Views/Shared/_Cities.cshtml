@@ -1,0 +1,14 @@
+﻿@model IEnumerable<InstaSport.Web.ViewModels.Cities.CityViewModel>
+
+<div class="container">
+    @foreach(var city in @Model)
+{
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>@Html.ActionLink(city.Name, "ByCity", "Games", new { cityId = city.Id }, null)</h3>
+                </div>
+            </div>
+        </div>
+    }
+</div>

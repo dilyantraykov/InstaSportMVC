@@ -203,10 +203,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CitiesController.cs" />
     <Compile Include="Areas\Administration\Controllers\LocationsController.cs" />
     <Compile Include="Areas\Administration\Controllers\SportsController.cs" />
     <Compile Include="Areas\Administration\Models\AdminCityViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminGameViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\AdminInputCityViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminInputGameViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminInputLocationViewModel.cs" />
     <Compile Include="Areas\Administration\Models\AdminInputSportViewModel.cs" />
@@ -229,6 +231,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
@@ -247,7 +250,9 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\Cities\CityViewModel.cs" />
     <Compile Include="ViewModels\Games\GameInputViewModel.cs" />
+    <Compile Include="ViewModels\Games\GamesByCityViewModel.cs" />
     <Compile Include="ViewModels\Games\GamesBySportViewModel.cs" />
     <Compile Include="ViewModels\Games\PlayerViewModel.cs" />
     <Compile Include="ViewModels\Games\UpcomingGameViewModel.cs" />
@@ -266,6 +271,8 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Sports\SportViewModel.cs" />
+    <Content Include="Views\Cities\Index.cshtml" />
+    <None Include="Views\Shared\_Cities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -404,6 +411,7 @@
     <Content Include="Views\Shared\EditorTemplates\AdminLocationViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminGameViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Sports\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Cities\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -462,6 +470,7 @@
     <Content Include="Views\Shared\DisplayTemplates\TimeSpan.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminSportViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminInputLocationViewModel.cshtml" />
+    <Content Include="Views\Games\ByCity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
