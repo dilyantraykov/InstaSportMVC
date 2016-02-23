@@ -31,6 +31,12 @@
             return game.Id;
         }
 
+        public IQueryable<Game> GetAll()
+        {
+            var games = this.games.All();
+            return games;
+        }
+
         public IQueryable<Game> GetByCity(int cityId)
         {
             var games = this.games.All().Where(x => x.Location.CityId == cityId);
@@ -65,6 +71,9 @@
             return games;
         }
 
-
+        public void Save()
+        {
+            this.games.Save();
+        }
     }
 }

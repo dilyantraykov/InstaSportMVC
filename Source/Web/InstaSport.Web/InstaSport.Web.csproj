@@ -251,6 +251,7 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Cities\CityViewModel.cs" />
+    <Compile Include="ViewModels\Games\GameDetailsViewModel.cs" />
     <Compile Include="ViewModels\Games\GameInputViewModel.cs" />
     <Compile Include="ViewModels\Games\GamesByCityViewModel.cs" />
     <Compile Include="ViewModels\Games\GamesBySportViewModel.cs" />
@@ -272,6 +273,12 @@
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Sports\SportViewModel.cs" />
     <Content Include="Views\Cities\Index.cshtml" />
+    <Content Include="Views\Games\ById.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\GameDetailsViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\UpcomingGameViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\LocationViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CityViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SportViewModel.cshtml" />
     <None Include="Views\Shared\_Cities.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -408,8 +415,8 @@
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\Administration\Views\Games\Index.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\AdminLocationViewModel.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\AdminGameViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\AdminLocationViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\AdminGameViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Sports\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Cities\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
@@ -468,13 +475,12 @@
     <Content Include="Views\Shared\_Sports.cshtml" />
     <Content Include="Views\Sports\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\TimeSpan.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\AdminSportViewModel.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\AdminInputLocationViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\AdminSportViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\AdminInputLocationViewModel.cshtml" />
     <Content Include="Views\Games\ByCity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
