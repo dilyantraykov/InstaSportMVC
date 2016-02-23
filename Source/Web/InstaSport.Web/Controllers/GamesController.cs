@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Data.Common;
     using Data.Models;
     using Infrastructure.Mapping;
     using InstaSport.Services.Data;
@@ -13,18 +14,21 @@
         private IGamesService games;
         private ISportsService sports;
         private ILocationsService locations;
+        private IDbRepository<City> cities;
         private readonly UserManager<User> manager;
 
         public GamesController(
             IGamesService games,
             ISportsService sports,
             ILocationsService locations,
+            IDbRepository<City> cities,
             UserManager<User> manager)
         {
             this.games = games;
             this.manager = manager;
             this.sports = sports;
             this.locations = locations;
+            this.cities = cities;
         }
 
         public ActionResult Index()
@@ -44,6 +48,19 @@
             {
                 Games = games,
                 SportName = sport
+            };
+
+            return this.View(viewModel);
+        }
+
+        public ActionResult ByCity(int cityId)
+        {
+            var games = this.games.GetByCity(cityId).To<UpcomingGameViewModel>().ToList();
+            var city = this.cities.GetById(cityId).Name;
+            var viewModel = new GamesByCityViewModel()
+            {
+                Games = games,
+                CityName = city
             };
 
             return this.View(viewModel);

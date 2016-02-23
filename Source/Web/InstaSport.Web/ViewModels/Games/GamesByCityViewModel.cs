@@ -2,9 +2,9 @@
 {
     using System.Collections.Generic;
 
-    public class GamesBySportViewModel
+    public class GamesByCityViewModel
     {
-        public string SportName { get; set; }
+        public string CityName { get; set; }
 
         public ICollection<UpcomingGameViewModel> Games { get; set; }
     }

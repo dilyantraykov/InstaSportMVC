@@ -1,10 +1,19 @@
 ﻿<li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
-<li>@Html.ActionLink("Games", "Index", "Games", new { area = string.Empty }, null)</li>
-@if (this.User.Identity.IsAuthenticated)
-{
-    <li>@Html.ActionLink("Create Game", "Create", "Games", new { area = string.Empty }, null)</li>
-}
-
+<li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Games <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li>@Html.ActionLink("Upcoming", "Index", "Games", new { area = string.Empty }, null)</li>
+        <li>@Html.ActionLink("By Sport", "Index", "Sports", new { area = string.Empty }, null)</li>
+        <li>@Html.ActionLink("By City", "Index", "Cities", new { area = string.Empty }, null)</li>
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <li>@Html.ActionLink("Create Game", "Create", "Games", new { area = string.Empty }, null)</li>
+        }
+    </ul>
+</li>
+<li>@Html.ActionLink("Locations", "Index", "Locations", new { area = string.Empty }, null)</li>
 @if (this.User.IsInRole("Administrator"))
 {
     <li role="presentation" class="dropdown">
@@ -14,6 +23,8 @@
         <ul class="dropdown-menu">
             <li>@Html.ActionLink("Manage Locations", "Index", "Locations", new { area = "Administration" }, null)</li>
             <li>@Html.ActionLink("Manage Games", "Index", "Games", new { area = "Administration" }, null)</li>
+            <li>@Html.ActionLink("Manage Sports", "Index", "Sports", new { area = "Administration" }, null)</li>
+            <li>@Html.ActionLink("Manage Cities", "Index", "Cities", new { area = "Administration" }, null)</li>
         </ul>
     </li>
 }
