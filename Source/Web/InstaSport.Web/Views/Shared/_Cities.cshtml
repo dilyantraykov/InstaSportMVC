@@ -6,7 +6,7 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3>@Html.ActionLink(city.Name, "ByCity", "Games", new { cityId = city.Id }, null)</h3>
+                    @Html.DisplayFor(m => city)
                 </div>
             </div>
         </div>
