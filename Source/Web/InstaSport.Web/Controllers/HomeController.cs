@@ -28,15 +28,15 @@
         public ActionResult Index()
         {
             var locations = this.Cache.Get(
-                            "locations",
+                            "locationsCount",
                             () => this.locations.GetCount(),
                             30 * 60);
             var sports = this.Cache.Get(
-                            "sports",
+                            "sportsCount",
                             () => this.sports.GetCount(),
                             30 * 60);
             var games = this.Cache.Get(
-                            "games",
+                            "gamesCount",
                             () => this.games.GetCount(),
                             30 * 60);
 
