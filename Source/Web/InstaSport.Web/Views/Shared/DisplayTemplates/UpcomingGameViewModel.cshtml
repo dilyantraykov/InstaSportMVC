@@ -1,0 +1,31 @@
+﻿@model InstaSport.Web.ViewModels.Games.UpcomingGameViewModel
+
+@{
+    var startsIn = Model.StartingDateTime - DateTime.UtcNow;
+    var currentPlayers = Model.Players.Any() ? @Model.Players.Count() : 0;
+    var minPlayers = Model.MinPlayers;
+    var goalPlayers = minPlayers != null ? minPlayers : Model.MaxPlayers;
+
+    var progress = goalPlayers != null ? (((double)currentPlayers / goalPlayers) * 100) : 100;
+}
+
+<div>Location: <a href="@Model.Location.Url">@Model.Location.Name</a></div>
+<div>Sport: @Html.ActionLink(Model.Sport.Name, "BySport", "Games", new { sportId = Model.Sport.Id }, null)</div>
+<div>Starts in: <em>@Html.DisplayFor(m => startsIn)</em></div>
+<div>
+    <span>
+        Players: <strong data-id="players-@Model.Id">@currentPlayers</strong>
+        <strong>@(minPlayers != null ? "/" + minPlayers : string.Empty)</strong>
+    </span>
+    <span>
+        @if (this.User.Identity.IsAuthenticated && progress < 100)
+        {
+            <button data-id="@Model.Id" class="join-Model btn btn-primary btn-sm">Join</button>
+        }
+    </span>
+</div>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="@(progress)" aria-valuemin="0" aria-valuemax="100" style="width: @(progress)%;">
+        <span class="sr-only">@(progress)% Complete</span>
+    </div>
+</div>
