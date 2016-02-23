@@ -272,6 +272,7 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Sports\SportViewModel.cs" />
+    <Content Include="favicon.png" />
     <Content Include="Views\Cities\Index.cshtml" />
     <Content Include="Views\Games\ById.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\GameDetailsViewModel.cshtml" />
