@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Manage Cities";
+}
+
+@(Html.Kendo().Grid<InstaSport.Web.Areas.Administration.Models.AdminSportViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.CreatedOn).Format("{0:HH:mm dd.MM.yyyy}");
+          columns.Bound(c => c.ModifiedOn).Format("{0:HH:mm dd.MM.yyyy}");
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => toolbar.Create())
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Cities_Read", "Cities"))
+          .Create(read => read.Action("Cities_Create", "Cities"))
+          .Update(update => update.Action("Cities_Update", "Cities"))
+          .Destroy(destroy => destroy.Action("Cities_Destroy", "Cities"))
+      )
+)
