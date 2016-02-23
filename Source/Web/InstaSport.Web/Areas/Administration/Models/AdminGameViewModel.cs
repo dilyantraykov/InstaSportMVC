@@ -8,7 +8,7 @@
     {
         public int Id { get; set; }
 
-        public string LocationName { get; set; }
+        public int LocationId { get; set; }
 
         public int? MinPlayers { get; set; }
 

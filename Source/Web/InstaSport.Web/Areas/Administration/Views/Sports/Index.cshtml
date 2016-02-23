@@ -12,6 +12,7 @@
           columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
       .ToolBar(toolbar => toolbar.Create())
+      .HtmlAttributes(new { style = "height: 400px" })
       .ColumnMenu()
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()

@@ -1,5 +1,6 @@
 ﻿namespace InstaSport.Web.Areas.Administration.Views
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
     using InstaSport.Data.Common;
@@ -8,24 +9,31 @@
     using InstaSport.Web.Infrastructure.Mapping;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
-    using System;
+    using Services.Data;
+
     public class GamesController : Controller
     {
-        public IDbRepository<Game> games;
+        public IGamesService games;
+        public ILocationsService locations;
 
-        public GamesController(IDbRepository<Game> games)
+        public GamesController(
+            IGamesService games,
+            ILocationsService locations)
         {
             this.games = games;
+            this.locations = locations;
         }
 
         public ActionResult Index()
         {
+            this.ViewData["locations"] = this.locations.GetAll().To<AdminLocationViewModel>().ToList();
+
             return this.View();
         }
 
         public ActionResult Games_Read([DataSourceRequest]DataSourceRequest request)
         {
-            DataSourceResult result = this.games.All()
+            DataSourceResult result = this.games.GetAll()
                 .To<AdminGameViewModel>()
                 .ToDataSourceResult(request);
 
@@ -38,6 +46,7 @@
             if (this.ModelState.IsValid)
             {
                 var entity = this.games.GetById(game.Id);
+                entity.LocationId = game.LocationId;
                 entity.MinPlayers = game.MinPlayers;
                 entity.MaxPlayers = game.MaxPlayers;
                 entity.StartingDateTime = game.StartingDateTime;
@@ -45,7 +54,7 @@
                 this.games.Save();
             }
 
-            var gameToDisplay = this.games.All()
+            var gameToDisplay = this.games.GetAll()
                             .To<AdminGameViewModel>()
                            .FirstOrDefault(x => x.Id == game.Id);
 
@@ -64,7 +73,7 @@
                 this.games.Save();
             }
 
-            var gameToDisplay = this.games.All()
+            var gameToDisplay = this.games.GetAll()
                             .To<AdminGameViewModel>()
                            .FirstOrDefault(x => x.Id == game.Id);
 

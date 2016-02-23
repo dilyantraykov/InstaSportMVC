@@ -6,6 +6,8 @@ namespace InstaSport.Web.Areas.Administration.Models
     {
         public int Id { get; set; }
 
+        public int LocationId { get; set; }
+
         public int? MinPlayers { get; set; }
 
         public int? MaxPlayers { get; set; }
