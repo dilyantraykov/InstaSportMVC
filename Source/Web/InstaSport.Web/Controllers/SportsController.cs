@@ -6,7 +6,7 @@
     using InstaSport.Services.Data;
     using ViewModels.Sports;
 
-    public class SportsController : Controller
+    public class SportsController : BaseController
     {
         private ISportsService sports;
 
@@ -17,7 +17,10 @@
 
         public ActionResult Index()
         {
-            var sports = this.sports.GetAll().To<SportViewModel>().ToList();
+            var sports = this.Cache.Get(
+                            "sports",
+                            () => this.sports.GetAll().To<SportViewModel>().ToList(),
+                            30 * 60);
 
             return this.View(sports);
         }

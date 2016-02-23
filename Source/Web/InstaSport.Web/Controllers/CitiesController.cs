@@ -18,7 +18,10 @@
 
         public ActionResult Index()
         {
-            var cities = this.cities.All().To<CityViewModel>().ToList();
+            var cities = this.Cache.Get(
+                            "cities",
+                            () => this.cities.All().To<CityViewModel>().ToList(),
+                            30 * 60);
 
             return this.View(cities);
         }
