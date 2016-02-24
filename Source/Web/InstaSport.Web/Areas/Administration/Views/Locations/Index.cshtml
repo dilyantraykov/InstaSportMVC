@@ -3,20 +3,24 @@
 }
 
 @(Html.Kendo().Grid<InstaSport.Web.Areas.Administration.Models.AdminLocationViewModel>()
-      .Name("grid")
-      .Columns(columns =>
-      {
-          columns.Bound(c => c.Name);
-          columns.ForeignKey(p => p.CityId, (System.Collections.IEnumerable)ViewData["cities"], "Id", "Name")
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.Name);
+            columns.ForeignKey(p => p.CityId, (System.Collections.IEnumerable)ViewData["cities"], "Id", "Name")
                 .Title("City").Width(200);
-          columns.Bound(c => c.CreatedOn).Format("{0:HH:mm dd.MM.yyyy}");
-          columns.Bound(c => c.ModifiedOn).Format("{0:HH:mm dd.MM.yyyy}");
-          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
-      })
-      .ToolBar(toolbar => toolbar.Create())
-      .HtmlAttributes(new { style = "height: 400px" })
-      .ColumnMenu()
-      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+            columns.Bound(c => c.CreatedOn).Format("{0:HH:mm dd.MM.yyyy}");
+            columns.Bound(c => c.ModifiedOn).Format("{0:HH:mm dd.MM.yyyy}");
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+        })
+        .ToolBar(toolbar => toolbar.Create())
+        .HtmlAttributes(new { style = "height: 400px" })
+        .ColumnMenu()
+        .Editable(editable =>
+        {
+            editable.Mode(GridEditMode.PopUp);
+            editable.DisplayDeleteConfirmation("Are you completely sure?");
+        })
       .Pageable()
       .Sortable(sortable =>
       {
@@ -26,7 +30,8 @@
       .Scrollable()
       .DataSource(dataSource => dataSource
           .Ajax()
-          .Events(events => events.Error("error_handler"))
+          .Events(events => events.Error("grid_error"))
+          .Events(events => events.RequestEnd("handle_End"))
           .Model(model => model.Id(p => p.Id))
           .Read(read => read.Action("Locations_Read", "Locations"))
           .Create(read => read.Action("Locations_Create", "Locations"))
@@ -36,19 +41,5 @@
 )
 
 @section scripts {
-    <script type="text/javascript">
-        function error_handler(e) {
-            if (e.errors) {
-                var message = "Errors:\n";
-                $.each(e.errors, function (key, value) {
-                    if ('errors' in value) {
-                        $.each(value.errors, function () {
-                            message += this + "\n";
-                        });
-                    }
-                });
-                alert(message);
-            }
-        }
-    </script>
+    @Html.Partial("_SweetAlert")
 }

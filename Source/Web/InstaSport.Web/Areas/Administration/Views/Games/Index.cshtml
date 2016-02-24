@@ -28,8 +28,14 @@
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))
+          .Events(events => events.Error("grid_error"))
+          .Events(events => events.RequestEnd("handle_End"))
           .Read(read => read.Action("Games_Read", "Games"))
           .Update(update => update.Action("Games_Update", "Games"))
           .Destroy(destroy => destroy.Action("Games_Destroy", "Games"))
       )
 )
+
+@section scripts {
+    @Html.Partial("_SweetAlert")
+}

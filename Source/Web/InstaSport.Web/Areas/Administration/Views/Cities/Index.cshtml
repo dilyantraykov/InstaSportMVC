@@ -25,9 +25,15 @@
       .DataSource(dataSource => dataSource
           .Ajax()
           .Model(model => model.Id(p => p.Id))
+          .Events(events => events.Error("grid_error"))
+          .Events(events => events.RequestEnd("handle_End"))
           .Read(read => read.Action("Cities_Read", "Cities"))
           .Create(read => read.Action("Cities_Create", "Cities"))
           .Update(update => update.Action("Cities_Update", "Cities"))
           .Destroy(destroy => destroy.Action("Cities_Destroy", "Cities"))
       )
 )
+
+@section scripts {
+    @Html.Partial("_SweetAlert")
+}
