@@ -6,3 +6,4 @@
 /// <reference path="jquery-2.2.0.min.js" />
 /// <reference path="kendoui/kendo.all.min.js" />
 /// <reference path="kendoui/kendo.aspnetmvc.min.js" />
+/// <reference path="sweet-alert.min.js" />

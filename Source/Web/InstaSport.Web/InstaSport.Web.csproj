@@ -272,6 +272,9 @@
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Sports\SportViewModel.cs" />
+    <Content Include="Content\sweet-alert.css" />
+    <Content Include="Scripts\sweet-alert.js" />
+    <Content Include="Scripts\sweet-alert.min.js" />
     <Content Include="favicon.png" />
     <Content Include="Views\Cities\Index.cshtml" />
     <Content Include="Views\Games\ById.cshtml" />
@@ -280,6 +283,7 @@
     <Content Include="Views\Shared\DisplayTemplates\LocationViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CityViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SportViewModel.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_SweetAlert.cshtml" />
     <None Include="Views\Shared\_Cities.cshtml" />
   </ItemGroup>
   <ItemGroup>
