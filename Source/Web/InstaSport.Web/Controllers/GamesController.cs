@@ -8,7 +8,7 @@
     using InstaSport.Services.Data;
     using Microsoft.AspNet.Identity;
     using ViewModels.Games;
-
+    using System;
     public class GamesController : BaseController
     {
         private IGamesService games;
@@ -74,6 +74,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Create()
         {
@@ -81,6 +82,7 @@
 
             viewModel.Locations = this.locations.GetAll();
             viewModel.Sports = this.sports.GetAll();
+            viewModel.StartingDateTime = DateTime.Now;
 
             return this.View(viewModel);
         }
