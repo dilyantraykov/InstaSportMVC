@@ -12,10 +12,13 @@
     <script>
         $(".join-game").click(function () {
             var gameId = $(this).attr("data-id");
-            $.post("/Games/Join", { gameId: gameId },
+            $.post("/Games/Join", { id: gameId },
                 function (data) {
                     var playersCount = data.PlayersCount;
                     $('strong[data-id="players-' + gameId + '"]').text(playersCount);
+                    $('#progress-' + gameId)
+                        .attr('aria-valuenow', data.Progress)
+                        .attr('style', 'width:' + data.Progress + '%');
                 });
         });
     </script>

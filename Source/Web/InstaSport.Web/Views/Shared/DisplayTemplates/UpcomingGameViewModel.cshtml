@@ -17,15 +17,19 @@
         Players: <strong data-id="players-@Model.Id">@currentPlayers</strong>
         <strong>@(minPlayers != null ? "/" + minPlayers : string.Empty)</strong>
     </span>
+</div>
+<div class="progress">
+    <div id="progress-@Model.Id" class="progress-bar" role="progressbar" aria-valuenow="@(progress)" aria-valuemin="0" aria-valuemax="100" style="width: @(progress)%;">
+        <span class="sr-only">@(progress)% Complete</span>
+    </div>
+</div>
+
+<div class="row">
     <span>
         @if (this.User.Identity.IsAuthenticated && progress < 100)
         {
-            <button data-id="@Model.Id" class="join-Model btn btn-primary btn-sm">Join</button>
+            <button data-id="@Model.Id" class="join-game btn btn-primary btn-sm">Join</button>
         }
     </span>
-</div>
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="@(progress)" aria-valuemin="0" aria-valuemax="100" style="width: @(progress)%;">
-        <span class="sr-only">@(progress)% Complete</span>
-    </div>
+    @Html.ActionLink("Details", "ById", "Games", new { id = Model.Id }, new { @class = "btn btn-sm pull-right" })
 </div>
