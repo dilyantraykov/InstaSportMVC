@@ -25,7 +25,7 @@
     <ul>
         @foreach (var sport in Model.AvailableSports)
         {
-            <li>@Html.ActionLink(sport.Name, "BySport", "Games", new { sportId = sport.Id }, null)</li>
+            <li>@Html.ActionLink(sport.Name, "BySport", "Games", new { id = sport.Id }, null)</li>
         }
     </ul>
 </div>
