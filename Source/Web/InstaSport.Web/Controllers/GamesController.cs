@@ -122,16 +122,14 @@
         {
             var usedId = this.User.Identity.GetUserId();
             var user = this.manager.Users.FirstOrDefault(u => u.Id == usedId);
-
-            /*
-            if (game.Players.Count >= game.MaxPlayers)
-            {
-                return;
-            }*/
+            var game = this.games.GetById(id);
 
             var totalPlayers = this.games.AddPlayer(id, user);
+            var maxPlayers = game.MinPlayers == null ? game.MaxPlayers : game.MinPlayers;
+            var goalPlayers = maxPlayers == null ? 1 : maxPlayers;
+            var progress = ((double)totalPlayers / goalPlayers) * 100;
 
-            return this.Json(new { PlayersCount = totalPlayers });
+            return this.Json(new { PlayersCount = totalPlayers, Progress = progress });
         }
     }
 }
