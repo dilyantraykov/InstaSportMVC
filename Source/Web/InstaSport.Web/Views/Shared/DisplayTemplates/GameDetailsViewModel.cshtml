@@ -10,7 +10,7 @@
 }
 
 <div>Location: <a href="@Model.Location.Url">@Model.Location.Name</a></div>
-<div>Sport: @Html.ActionLink(Model.Sport.Name, "BySport", "Games", new { sportId = Model.Sport.Id }, null)</div>
+<div>Sport: @Html.ActionLink(Model.Sport.Name, "BySport", "Games", new { id = Model.Sport.Id }, null)</div>
 <div>Starts in: <em>@Html.DisplayFor(m => startsIn)</em></div>
 <div>
     <span>
