@@ -40,18 +40,18 @@
             return this.View(games);
         }
 
-        public ActionResult ById(int gameId)
+        public ActionResult ById(int id)
         {
-            var game = this.games.GetById(gameId);
+            var game = this.games.GetById(id);
             var viewModel = this.Mapper.Map<GameDetailsViewModel>(game);
 
             return this.View(viewModel);
         }
 
-        public ActionResult BySport(int sportId)
+        public ActionResult BySport(int id)
         {
-            var games = this.games.GetBySport(sportId).To<UpcomingGameViewModel>().ToList();
-            var sport = this.sports.GetById(sportId).Name;
+            var games = this.games.GetBySport(id).To<UpcomingGameViewModel>().ToList();
+            var sport = this.sports.GetById(id).Name;
             var viewModel = new GamesBySportViewModel()
             {
                 Games = games,
@@ -61,10 +61,10 @@
             return this.View(viewModel);
         }
 
-        public ActionResult ByCity(int cityId)
+        public ActionResult ByCity(int id)
         {
-            var games = this.games.GetByCity(cityId).To<UpcomingGameViewModel>().ToList();
-            var city = this.cities.GetById(cityId).Name;
+            var games = this.games.GetByCity(id).To<UpcomingGameViewModel>().ToList();
+            var city = this.cities.GetById(id).Name;
             var viewModel = new GamesByCityViewModel()
             {
                 Games = games,
@@ -118,7 +118,7 @@
         }
 
         [HttpPost]
-        public ActionResult Join(int gameId)
+        public ActionResult Join(int id)
         {
             var usedId = this.User.Identity.GetUserId();
             var user = this.manager.Users.FirstOrDefault(u => u.Id == usedId);
@@ -129,7 +129,7 @@
                 return;
             }*/
 
-            var totalPlayers = this.games.AddPlayer(gameId, user);
+            var totalPlayers = this.games.AddPlayer(id, user);
 
             return this.Json(new { PlayersCount = totalPlayers });
         }
