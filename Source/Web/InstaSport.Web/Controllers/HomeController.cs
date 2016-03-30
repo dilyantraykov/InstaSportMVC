@@ -49,5 +49,11 @@
 
             return this.View(viewModel);
         }
+
+        public ActionResult SetLanguage(string lang)
+        {
+            this.Session["language"] = lang;
+            return this.Redirect(this.Request.UrlReferrer.LocalPath);
+        }
     }
 }

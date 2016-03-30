@@ -6,10 +6,9 @@
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
-
     using Data;
     using Data.Migrations;
-
+    using Helpers;
     using Infrastructure.Mapping;
 
 #pragma warning disable SA1649 // File name must match first type name
@@ -24,6 +23,7 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<InstaSportDbContext, Configuration>());
             AutofacConfig.RegisterAutofac();
             AreaRegistration.RegisterAllAreas();
+            GlobalFilters.Filters.Add(new InternationalizationAttribute());
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
