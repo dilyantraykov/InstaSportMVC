@@ -8,7 +8,8 @@
     using Services.Data;
 
     using ViewModels.Home;
-
+    using System.Web;
+    using System;
     public class HomeController : BaseController
     {
         private readonly ILocationsService locations;
@@ -52,7 +53,9 @@
 
         public ActionResult SetLanguage(string lang)
         {
-            this.Session["language"] = lang;
+            HttpCookie cookie = new HttpCookie("lang", lang);
+            cookie.Expires = DateTime.Now.AddDays(30);
+            this.HttpContext.Response.Cookies.Add(cookie);
             return this.Redirect(this.Request.UrlReferrer.LocalPath);
         }
     }
