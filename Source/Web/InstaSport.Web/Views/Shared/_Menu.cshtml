@@ -1,4 +1,4 @@
-﻿<li>@Html.ActionLink(Resources.General.HomeLabel, "Index", "Home", new { area = string.Empty }, null)</li>
+﻿<li>@Html.ActionLink(Localization.General.HomeLabel, "Index", "Home", new { area = string.Empty }, null)</li>
 <li role="presentation" class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         Games <span class="caret"></span>
@@ -22,7 +22,7 @@
         <li>@Html.ActionLink("Bulgarian", "SetLanguage", "Home", new { lang = "bg", area = string.Empty }, null)</li>
     </ul>
 </li>
-<li>@Html.ActionLink(Resources.General.LocationsLabel, "Index", "Locations", new { area = string.Empty }, null)</li>
+<li>@Html.ActionLink(Localization.General.LocationsLabel, "Index", "Locations", new { area = string.Empty }, null)</li>
 @if (this.User.IsInRole("Administrator"))
 {
     <li role="presentation" class="dropdown">
