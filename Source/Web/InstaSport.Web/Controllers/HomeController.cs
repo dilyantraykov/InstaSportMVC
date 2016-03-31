@@ -1,15 +1,13 @@
 ﻿namespace InstaSport.Web.Controllers
 {
-    using System.Linq;
-    using System.Web.Mvc;
-
-    using Infrastructure.Mapping;
-
-    using Services.Data;
-
-    using ViewModels.Home;
-    using System.Web;
     using System;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using Infrastructure.Mapping;
+    using Services.Data;
+    using ViewModels.Home;
+
     public class HomeController : BaseController
     {
         private readonly ILocationsService locations;

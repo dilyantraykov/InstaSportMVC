@@ -192,15 +192,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_GlobalResources\General.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>General.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_GlobalResources\General.bg.Designer.cs">
+      <DependentUpon>General.bg.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>General.bg.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\General.designer.cs">
+      <DependentUpon>General.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="App_Start\ApplicationSignInManager.cs" />
     <Compile Include="App_Start\ApplicationUserManager.cs" />
@@ -295,10 +295,6 @@
     <Content Include="Views\Shared\DisplayTemplates\CityViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SportViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_SweetAlert.cshtml" />
-    <EmbeddedResource Include="App_GlobalResources\General.bg.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>General.bg.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="Views\Shared\_Cities.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -547,10 +543,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\General.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\General.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>General.bg.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\General.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>General.designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
