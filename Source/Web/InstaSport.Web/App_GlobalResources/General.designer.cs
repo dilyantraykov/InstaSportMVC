@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InstaSport.Web.App_GlobalResources {
+namespace Resources {
     using System;
     
     

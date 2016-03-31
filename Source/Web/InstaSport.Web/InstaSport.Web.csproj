@@ -546,10 +546,12 @@
     <EmbeddedResource Include="App_GlobalResources\General.bg.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>General.bg.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\General.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>General.designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
