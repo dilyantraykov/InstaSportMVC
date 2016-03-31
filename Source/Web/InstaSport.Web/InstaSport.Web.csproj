@@ -295,7 +295,7 @@
     <Content Include="Views\Shared\DisplayTemplates\CityViewModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SportViewModel.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_SweetAlert.cshtml" />
-    <None Include="Views\Shared\_Cities.cshtml" />
+    <Content Include="Views\Shared\_Cities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
