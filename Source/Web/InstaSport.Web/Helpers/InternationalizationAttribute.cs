@@ -8,7 +8,8 @@
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            string language = (string)filterContext.HttpContext.Session["language"] ?? "en";
+            var cookie = filterContext.HttpContext.Request.Cookies.Get("lang");
+            string language = cookie == null ? "en" : cookie.Value;
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(string.Format(language));
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(string.Format(language));
