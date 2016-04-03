@@ -1,5 +1,6 @@
 ﻿namespace InstaSport.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
     using Data.Common;
@@ -8,7 +9,7 @@
     using InstaSport.Services.Data;
     using Microsoft.AspNet.Identity;
     using ViewModels.Games;
-    using System;
+
     public class GamesController : BaseController
     {
         private IGamesService games;
